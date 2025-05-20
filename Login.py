@@ -8,7 +8,7 @@ def login():
         usuario_encontrado = False
         for usuario in usuarios:
             if usuario["nombre"] == nombre and str(usuario["contraseña"]) == contraseña:
-                print(f"¡Hola, {nombre}! Has iniciado sesión correctamente.")
+                print(f"\n¡Hola, {nombre}!")
                 usuario_encontrado = True
                 break
         if usuario_encontrado:
