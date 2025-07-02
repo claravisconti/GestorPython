@@ -1,7 +1,7 @@
 from Login import login
 from Productos import productos
 from leer_productos import leer_productos
-from agregar_producto import agregarProductos
+from agregar_producto import agregar_producto
 from buscar_producto import buscarProductos
 from eliminar_producto import eliminarProductos
 from actualizar_producto import actualizar_producto
@@ -25,7 +25,7 @@ while True:
     if opcion == "1":
         leer_productos()
     elif opcion == "2":
-        agregarProductos(productos)
+        agregar_producto()
         leer_productos()
     elif opcion == "3":
         buscarProductos(productos)
