@@ -3,7 +3,7 @@ from Productos import productos
 from leer_productos import leer_productos, mostrar_productos
 from agregar_producto import agregar_producto
 from buscar_producto import buscar_productos
-from eliminar_producto import eliminarProductos
+from eliminar_producto import eliminar_producto
 from actualizar_producto import actualizar_producto
 from reporte import reporte
 
@@ -26,14 +26,12 @@ while True:
         leer_productos()
     elif opcion == "2":
         agregar_producto()
-
     elif opcion == "3":
         buscar_productos()
     elif opcion == "4":
-        eliminarProductos(productos)
-        leer_productos()
+        eliminar_producto()
     elif opcion == "5":
-        actualizar_producto
+        actualizar_producto()
         break
     elif opcion == "6":
         reporte
