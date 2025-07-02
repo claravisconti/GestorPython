@@ -17,7 +17,7 @@ while True:
     print("3. Buscar producto: ID, nombre o categoría")
     print("4. Eliminar producto")
     print("5. Actualizar producto")
-    print("6. Reporte de productos que tengan una cantidad igual o inferior a un límite especificado por el usuario o usuaria.")
+    print("6. Filtrar productos por cantidad")
     print("7. Salir\n")
     
     opcion = input("Seleccione una opción: ")

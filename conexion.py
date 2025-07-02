@@ -46,7 +46,5 @@ def insertar_productos_si_vacia():
 
         conn.commit()
         print("Productos insertados correctamente.")
-    else:
-        print("La tabla ya tiene datos. No se insertó nada.")
-
+    
     conn.close()
