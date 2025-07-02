@@ -1,6 +1,4 @@
-from Login import login
-from Productos import productos
-from leer_productos import leer_productos, mostrar_productos
+from leer_productos import leer_productos
 from agregar_producto import agregar_producto
 from buscar_producto import buscar_productos
 from eliminar_producto import eliminar_producto
@@ -8,8 +6,6 @@ from actualizar_producto import actualizar_producto
 from reporte import reporte
 
 while True: 
-
-    # login()
 
     print("\nMenú de opciones:")
     print("1. Mostrar productos")
