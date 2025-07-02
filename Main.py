@@ -3,7 +3,7 @@ from agregar_producto import agregar_producto
 from buscar_producto import buscar_productos
 from eliminar_producto import eliminar_producto
 from actualizar_producto import actualizar_producto
-from reporte import reporte
+from mostrar_reporte import mostrar_reporte
 
 while True: 
 
@@ -30,7 +30,7 @@ while True:
         actualizar_producto()
         break
     elif opcion == "6":
-        reporte
+        mostrar_reporte()
         break
     elif opcion == "7":
         print("Cierre de sesión exitoso")
