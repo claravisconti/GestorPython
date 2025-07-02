@@ -32,10 +32,8 @@ while True:
         eliminar_producto()
     elif opcion == "5":
         actualizar_producto()
-        break
     elif opcion == "6":
         mostrar_reporte()
-        break
     elif opcion == "7":
         print("Cierre de sesión exitoso")
         break
