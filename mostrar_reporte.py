@@ -12,20 +12,22 @@ def mostrar_reporte():
         conn = conectar()
         cursor = conn.cursor()
 
+        #   Solicitar al usuario que ingrese la cantidad máxima límite
         while True:
             entrada = input("Ingresá la cantidad máxima límite: ").strip()
             if entrada.isdigit():
                 cantidad_buscar = int(entrada)
-            break
-        print("Por favor, ingresá un número entero válido.")
+                break  # Solo se rompe si la entrada es válida
+            print("Por favor, ingresá un número entero válido.")
 
+        #   Realizar la consulta para buscar productos con cantidad menor o igual al límite especificado
         cursor.execute('SELECT * FROM productos WHERE cantidad <= ?', (cantidad_buscar,))
         productos = cursor.fetchall()
-
+        
+        #   Verificar si se encontraron productos
         if not productos:
             print("\nNo se encontraron productos con límite.")
             return []
-        print("\nResultados encontrados:")
 
         #   Mostrar los detalles del producto encontrado
         mostrar_productos(productos)

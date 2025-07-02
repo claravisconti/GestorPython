@@ -4,6 +4,10 @@ from buscar_producto import buscar_productos
 from eliminar_producto import eliminar_producto
 from actualizar_producto import actualizar_producto
 from mostrar_reporte import mostrar_reporte
+from conexion import crear_base, insertar_productos_si_vacia
+
+crear_base() 
+insertar_productos_si_vacia()
 
 while True: 
 
