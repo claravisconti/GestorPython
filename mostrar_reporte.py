@@ -1,5 +1,6 @@
 from conexion import conectar
 from leer_productos import mostrar_productos
+from colorama import init, Fore, Style
 
 def mostrar_reporte():
     #     Lista para almacenar los productos encontrados
@@ -14,11 +15,11 @@ def mostrar_reporte():
 
         #   Solicitar al usuario que ingrese la cantidad máxima límite
         while True:
-            entrada = input("Ingresá la cantidad máxima límite: ").strip()
+            entrada = input(Style.BRIGHT + "Ingresá la cantidad máxima límite: ").strip()
             if entrada.isdigit():
                 cantidad_buscar = int(entrada)
                 break  # Solo se rompe si la entrada es válida
-            print("Por favor, ingresá un número entero válido.")
+            print(Fore.RED +"Por favor, ingresá un número entero válido.")
 
         #   Realizar la consulta para buscar productos con cantidad menor o igual al límite especificado
         cursor.execute('SELECT * FROM productos WHERE cantidad <= ?', (cantidad_buscar,))
@@ -26,14 +27,14 @@ def mostrar_reporte():
         
         #   Verificar si se encontraron productos
         if not productos:
-            print("\nNo se encontraron productos con límite.")
+            print(Fore.RED + "\nNo se encontraron productos con límite.")
             return []
 
         #   Mostrar los detalles del producto encontrado
         mostrar_productos(productos)
 
     except Exception as e:
-        print(f'\nError en la búsqueda: {e}')
+        print(Fore.RED + f'\nError en la búsqueda: {e}')
         return []
 
     finally:

@@ -1,5 +1,6 @@
 from conexion import conectar
 from leer_productos import mostrar_productos
+from colorama import init, Fore, Style
 
 def buscar_productos():
     #       Menu de busquedas
@@ -24,11 +25,11 @@ def buscar_productos():
         #     Dependiendo de la opción elegida, realizar la búsqueda correspondiente
 
         if opcion == '1':
-            id_buscar = input("Ingresá el ID del producto: ").strip()
+            id_buscar = input(Style.BRIGHT +"Ingresá el ID del producto: ").strip()
             #     Validar que el ID sea un número entero
             #     Si no es un número entero, mostrar un mensaje de error y retornar una lista vacía
             if not id_buscar.isdigit():
-                print("El ID debe ser un número entero.")
+                print(Fore.RED +"El ID debe ser un número entero.")
                 return []
             #     Ejecutar la consulta para buscar por ID
             #     Usar ? para evitar inyecciones SQL
@@ -37,7 +38,7 @@ def buscar_productos():
             productos = cursor.fetchall()
 
         elif opcion == '2':
-            nombre_buscar = input("Ingresá el nombre del producto: ").strip()         
+            nombre_buscar = input(Style.BRIGHT +"Ingresá el nombre del producto: ").strip()         
             #     Ejecutar la consulta para buscar por nombre
             #     Usar UPPER para hacer la búsqueda insensible a mayúsculas/minúsculas
             #     Usar LIKE para permitir coincidencias parciales
@@ -45,7 +46,7 @@ def buscar_productos():
             productos = cursor.fetchall()
 
         elif opcion == '3':
-            categoria_buscar = input("Ingresá la categoría: ").strip()
+            categoria_buscar = input(Style.BRIGHT + "Ingresá la categoría: ").strip()
             #    Ejecutar la consulta para buscar por categoría
             #    Usar UPPER para hacer la búsqueda insensible a mayúsculas/minúsculas
             #    Usar LIKE para permitir coincidencias parciales
@@ -53,11 +54,11 @@ def buscar_productos():
             productos = cursor.fetchall()
 
         else:
-            print("Opción inválida.")
+            print(Fore.RED +"Opción inválida.")
             return []
         
     except Exception as e:
-        print(f'Error en la búsqueda: {e}')
+        print(Fore.RED + f'Error en la búsqueda: {e}')
         return []
 
     finally:

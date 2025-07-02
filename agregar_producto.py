@@ -1,5 +1,6 @@
 from conexion import conectar
 from leer_productos import leer_productos
+from colorama import init, Fore, Style
 
 #     SOLICITAR DATOS DEL PRODUCTO
 def solicitar_datos():
@@ -14,7 +15,7 @@ def solicitar_datos():
         #   Si el nombre está vacío, mostrar un mensaje de error y volver a solicitar el nombre
         if nombre:
             break
-        print("El nombre no puede estar vacío.")
+        print(Fore.RED +"El nombre no puede estar vacío.")
 
     descripcion = input("Descripción: ").strip()
 
@@ -28,7 +29,7 @@ def solicitar_datos():
         if cantidad.isdigit() and int(cantidad) >= 1:
             cantidad = int(cantidad)
             break
-        print("Cantidad inválida. Debe ser un número mayor a 0")
+        print(Fore.RED +"Cantidad inválida. Debe ser un número mayor a 0")
 
     #  Usar while para validar que la categoría no esté vacía
     #   Validar que el precio sea un número decimal mayor a 0
@@ -40,9 +41,9 @@ def solicitar_datos():
             if precio >= 0:
                 break
             else:
-                print("Cantidad inválida. Debe ser un número mayor a 0")
+                print(Fore.RED +"Cantidad inválida. Debe ser un número mayor a 0")
         except ValueError:
-            print("Precio inválido. Ingresá un número decimal.")
+            print(Fore.RED +"Precio inválido. Ingresá un número decimal.")
 
     #  Usar while para validar que la categoría no esté vacía
     #  Usar strip() para eliminar espacios en blanco al inicio y al final
@@ -50,7 +51,7 @@ def solicitar_datos():
         categoria = input("Categoría*: ").strip()
         if categoria:
             break
-        print("La categoría no puede estar vacía.")
+        print(Fore.RED +"La categoría no puede estar vacía.")
 
     return nombre, descripcion, cantidad, precio, categoria
 
@@ -75,7 +76,7 @@ def agregar_producto():
         #     Confirmar los cambios en la base de datos
         #     Usar commit() para guardar los cambios > Opción default de SQLite3
         conn.commit()
-        print(f'Producto "{nombre}" insertado correctamente.')
+        print(Fore.GREEN +f'Producto "{nombre}" insertado correctamente.')
 
         #     Llamar a la función leer_productos para mostrar los productos actualizados
         leer_productos()
@@ -85,7 +86,7 @@ def agregar_producto():
     except Exception as e:
         if conn:
             conn.rollback()
-        print(f'Error al insertar producto: {e}')
+        print(Fore.RED + f'Error al insertar producto: {e}')
 
     finally:
         if conn:
